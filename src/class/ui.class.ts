@@ -1,25 +1,27 @@
 import createHtmlEL from '../helper/createEl.js';
 import { BookInterface } from '../interface/interface.js';
 import MyAlert from './MyAlert.class.js';
+import StoreBooks from './StoreBook.js';
 
 export default class UI {
-  private static booksArr: BookInterface[] = [
-    {
-      title: 'Book One',
-      author: 'John Doe',
-      isbn: 3434434,
-    },
-    {
-      title: 'Book Two',
-      author: 'Jane Doe',
-      isbn: 111111,
-    },
-    {
-      title: 'Book Tryys',
-      author: 'Serbentautas Doe',
-      isbn: 222222,
-    },
-  ];
+  private static booksArr: BookInterface[] = StoreBooks.getData();
+  // [
+  //   {
+  //     title: 'Book One',
+  //     author: 'John Doe',
+  //     isbn: 3434434,
+  //   },
+  //   {
+  //     title: 'Book Two',
+  //     author: 'Jane Doe',
+  //     isbn: 111111,
+  //   },
+  //   {
+  //     title: 'Book Tryys',
+  //     author: 'Serbentautas Doe',
+  //     isbn: 222222,
+  //   },
+  // ];
 
   public static showBooks() {
     UI.render();
@@ -34,6 +36,7 @@ export default class UI {
     // sukti cikla per knygas
     // surasyti jas i html
     UI.booksArr.forEach((bookObj) => UI.createAndAppendOneRow(bookObj));
+    StoreBooks.saveData(UI.booksArr);
   }
 
   private static createAndAppendOneRow(book: BookInterface): void {
