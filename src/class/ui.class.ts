@@ -56,10 +56,14 @@ export default class UI {
     tabelBodyEl.append(trEl);
   }
 
-  // TODO: handle same id problem
   public static addBook(book: BookInterface): void {
     // patikrinti ar jau yra tokia knyga
-    // jei yra paalertinti klaida
+    const yraTokiaKnyga = UI.booksArr.some((bObj) => bObj.isbn === book.isbn);
+    if (yraTokiaKnyga) {
+      // jei yra paalertinti klaida
+      new MyAlert(`"${book.title}" jau yra irasyta`, 'warning');
+      return;
+    }
     // jei nera prideti knyga
     UI.booksArr.push(book);
     console.table(UI.booksArr);
@@ -75,7 +79,7 @@ export default class UI {
     // 2 sugeneruoti sarasa is naujo
     UI.render();
     // 3 iskviesti alerta kad knyga istrinta
-    // TODO: atspaustini knygos title kuri istrinta
-    new MyAlert('Deleted', 'danger');
+    // atspaustini knygos title kuri istrinta
+    new MyAlert(`"${book.title}" was Deleted`, 'danger');
   }
 }
