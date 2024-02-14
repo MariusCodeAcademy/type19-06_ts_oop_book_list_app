@@ -58,6 +58,9 @@ export default class UI {
 
   // TODO: handle same id problem
   public static addBook(book: BookInterface): void {
+    // patikrinti ar jau yra tokia knyga
+    // jei yra paalertinti klaida
+    // jei nera prideti knyga
     UI.booksArr.push(book);
     console.table(UI.booksArr);
     UI.render();
