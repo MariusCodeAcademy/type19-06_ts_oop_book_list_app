@@ -14,7 +14,7 @@ export default class UI {
       isbn: 111111,
     },
     {
-      title: 'Book Two',
+      title: 'Book Tryys',
       author: 'Serbentautas Doe',
       isbn: 222222,
     },
@@ -25,6 +25,10 @@ export default class UI {
   }
 
   private static render(): void {
+    // issivalom konteineri pries generuojant
+    const tabelBodyEl = document.getElementById('book-list') as HTMLTableSectionElement | null;
+    if (tabelBodyEl === null) return console.warn('nerastas tabelBodyEl ');
+    tabelBodyEl.innerHTML = '';
     // sukti cikla per knygas
     // surasyti jas i html
     UI.booksArr.forEach((bookObj) => UI.createAndAppendOneRow(bookObj));
@@ -42,6 +46,7 @@ export default class UI {
       { class: 'btn btn-danger btn-sm' },
       'X',
     );
+    delBtn.addEventListener('click', () => UI.deleteBook(book));
     col4.appendChild(delBtn);
     trEl.append(col1, col2, col3, col4);
     if (tabelBodyEl === null) return console.warn('nerastas tabelBodyEl ');
@@ -52,7 +57,13 @@ export default class UI {
   public static addBook(book: BookInterface): void {
     UI.booksArr.push(book);
     console.table(UI.booksArr);
+    UI.render();
   }
 
-  public static deleteBook(book: BookInterface): void {}
+  private static deleteBook(book: BookInterface): void {
+    console.log('book delete ===', book);
+    // 1 istrinti is knygu masyvo knyga kuris sutampa su book (isbn)
+    // 2 sugeneruoti sarasa is naujo
+    // 3 iskviesti alerta kad knyga istrinta
+  }
 }
