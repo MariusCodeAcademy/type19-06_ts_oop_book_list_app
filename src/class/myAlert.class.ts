@@ -6,10 +6,14 @@ export default class MyAlert {
   constructor(public message: string, public type: AlertType) {
     const alertEl = createHtmlEL<HTMLDivElement>(
       'div',
-      { class: `alert alert-${type} my-alert`, role: 'alert' },
+      { class: `alert alert-${type} my-alert position-absolute w-100 t-0`, role: 'alert' },
       message,
     );
     document.body.prepend(alertEl);
+
+    setTimeout(() => {
+      alertEl.remove();
+    }, 3000);
   }
 }
 

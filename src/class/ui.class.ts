@@ -23,6 +23,7 @@ export default class UI {
 
   public static showBooks() {
     UI.render();
+    new MyAlert('Books loaded', 'success');
   }
 
   private static render(): void {
@@ -60,6 +61,7 @@ export default class UI {
     UI.booksArr.push(book);
     console.table(UI.booksArr);
     UI.render();
+    new MyAlert('Book added', 'success');
   }
 
   private static deleteBook(book: BookInterface): void {
@@ -70,6 +72,7 @@ export default class UI {
     // 2 sugeneruoti sarasa is naujo
     UI.render();
     // 3 iskviesti alerta kad knyga istrinta
+    // TODO: atspaustini knygos title kuri istrinta
     new MyAlert('Deleted', 'danger');
   }
 }
