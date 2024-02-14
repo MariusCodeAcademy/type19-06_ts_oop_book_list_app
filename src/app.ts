@@ -1,15 +1,15 @@
 // import createHtmlEL from './createEl.js';
 
 import Book from './class/book.class.js';
-import UI from './class/ui.class.js';
+import BookApp from './class/bookApp.class.js';
 
 console.log('Hello from app.ts!111');
 
-UI.showBooks();
+BookApp.showBooks();
 
 const b1 = new Book('aplinkk pasauli', 'Z.Vernas', 542874);
 
-UI.addBook(b1);
+BookApp.addBook(b1);
 
 // nusitaikom i forma
 const formEl = document.getElementById('book-form') as HTMLFormElement | null;
@@ -28,5 +28,5 @@ formEl?.addEventListener('submit', (event: SubmitEvent): void => {
   const newBook = new Book(titleEl.value, authorEl.value, isbnEl.valueAsNumber);
   console.log('newBook ===', newBook);
   // issivalom inputus
-  UI.addBook(newBook);
+  BookApp.addBook(newBook);
 });
