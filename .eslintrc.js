@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   env: {
     browser: true,
     es2021: true,
@@ -23,5 +23,6 @@ module.exports = {
     '@typescript-eslint/comma-dangle': 'off',
     '@typescript-eslint/semi': 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
+    '@typescript-eslint/space-before-function-paren': 'off',
   },
 };

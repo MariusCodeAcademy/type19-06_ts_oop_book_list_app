@@ -2,6 +2,7 @@
   "name": "05_ts_generics_bendriniai_tipai",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "tsc --watch",
