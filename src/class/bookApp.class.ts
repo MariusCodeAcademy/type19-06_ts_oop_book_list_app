@@ -11,6 +11,10 @@ export default class BookApp {
     new MyAlert('Books loaded', 'success');
   }
 
+  public static resetBooks() {
+    // atstatyti knygas i pradini masyva
+  }
+
   public static addBook(book: BookInterface): void {
     // patikrinti ar jau yra tokia knyga
     const yraTokiaKnyga = BookApp.booksArr.some((bObj) => bObj.isbn === book.isbn);

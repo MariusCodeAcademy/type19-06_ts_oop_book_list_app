@@ -3,24 +3,6 @@ import { BookInterface } from '../interface/interface.js';
 import BookApp from './bookApp.class.js';
 
 export default class UI {
-  // [
-  //   {
-  //     title: 'Book One',
-  //     author: 'John Doe',
-  //     isbn: 3434434,
-  //   },
-  //   {
-  //     title: 'Book Two',
-  //     author: 'Jane Doe',
-  //     isbn: 111111,
-  //   },
-  //   {
-  //     title: 'Book Tryys',
-  //     author: 'Serbentautas Doe',
-  //     isbn: 222222,
-  //   },
-  // ];
-
   public static render(booksArr: BookInterface[]): void {
     // issivalom konteineri pries generuojant
     const tabelBodyEl = document.getElementById('book-list') as HTMLTableSectionElement | null;
