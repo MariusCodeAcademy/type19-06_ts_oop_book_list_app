@@ -62,8 +62,11 @@ export default class UI {
 
   private static deleteBook(book: BookInterface): void {
     console.log('book delete ===', book);
+    const isbnToDelete = book.isbn;
     // 1 istrinti is knygu masyvo knyga kuris sutampa su book (isbn)
+    UI.booksArr = UI.booksArr.filter((bObj) => bObj.isbn !== isbnToDelete);
     // 2 sugeneruoti sarasa is naujo
+    UI.render();
     // 3 iskviesti alerta kad knyga istrinta
   }
 }
