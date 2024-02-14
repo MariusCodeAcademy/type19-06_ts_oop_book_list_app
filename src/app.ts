@@ -11,4 +11,22 @@ const b1 = new Book('aplinkk pasauli', 'Z.Vernas', 542874);
 
 UI.addBook(b1);
 
-console.log('b1 ===', b1);
+// nusitaikom i forma
+const formEl = document.getElementById('book-form') as HTMLFormElement | null;
+const titleEl = document.getElementById('title') as HTMLInputElement | null;
+const authorEl = document.getElementById('author') as HTMLInputElement | null;
+const isbnEl = document.getElementById('isbn') as HTMLInputElement | null;
+
+// dedam evet listeneri
+formEl?.addEventListener('submit', (event: SubmitEvent): void => {
+  event.preventDefault();
+  if (!titleEl || !authorEl || !isbnEl) return console.warn('nera input elemento/u');
+
+  // TODO: validation
+
+  // sukuriam nauja knyga
+  const newBook = new Book(titleEl.value, authorEl.value, isbnEl.valueAsNumber);
+  console.log('newBook ===', newBook);
+  // issivalom inputus
+  UI.addBook(newBook);
+});
