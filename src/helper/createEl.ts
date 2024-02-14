@@ -22,6 +22,8 @@ export default function createHtmlEL<T>(
   return newEl as T;
 }
 
+// const h1 = createHtmlEL<HTMLHeadingElement>('span', { class: 'title', href: '/' }, 'Hello world');
+
 type HtmlTagName =
   | 'a'
   | 'abbr'
