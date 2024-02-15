@@ -19,7 +19,9 @@ export default class UI {
     const col1 = createHtmlEL<HTMLTableCellElement>('td', {}, book.title);
     const col2 = createHtmlEL<HTMLTableCellElement>('td', {}, book.author);
     const col3 = createHtmlEL<HTMLTableCellElement>('td', {}, book.isbn.toString());
-    const col4 = createHtmlEL<HTMLTableCellElement>('td', {}, book.price?.toString() || '0');
+    const price = book.price || 0;
+    const priceFormated = `$${price.toFixed(2)}`;
+    const col4 = createHtmlEL<HTMLTableCellElement>('td', {}, priceFormated);
     const col5 = createHtmlEL<HTMLTableCellElement>('td', {});
     const delBtn = createHtmlEL<HTMLButtonElement>(
       'button',

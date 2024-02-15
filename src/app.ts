@@ -17,20 +17,33 @@ const formEl = document.getElementById('book-form') as HTMLFormElement | null;
 const titleEl = document.getElementById('title') as HTMLInputElement | null;
 const authorEl = document.getElementById('author') as HTMLInputElement | null;
 const isbnEl = document.getElementById('isbn') as HTMLInputElement | null;
+const priceEl = document.getElementById('price') as HTMLInputElement | null;
 
 // dedam evet listeneri
 formEl?.addEventListener('submit', (event: SubmitEvent): void => {
   event.preventDefault();
-  if (!titleEl || !authorEl || !isbnEl) return console.warn('nera input elemento/u');
+  if (!titleEl || !authorEl || !isbnEl || !priceEl) return console.warn('nera input elemento/u');
 
   // validation
-  if (titleEl.value.trim() === '' || authorEl.value.trim() === '' || isbnEl.value.trim() === '') {
+  if (
+    [
+      titleEl.value.trim(),
+      authorEl.value.trim(),
+      isbnEl.value.trim(),
+      priceEl.value.trim(),
+    ].includes('')
+  ) {
     new MyAlert('All fields required', 'danger');
     return;
   }
 
   // sukuriam nauja knyga
-  const newBook = new Book(titleEl.value, authorEl.value, isbnEl.valueAsNumber, 50);
+  const newBook = new Book(
+    titleEl.value,
+    authorEl.value,
+    isbnEl.valueAsNumber,
+    priceEl.valueAsNumber,
+  );
   console.log('newBook ===', newBook);
   // issivalom inputus
   BookApp.addBook(newBook);
