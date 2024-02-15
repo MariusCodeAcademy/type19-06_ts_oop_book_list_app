@@ -4,13 +4,17 @@ import BookApp from './bookApp.class.js';
 
 export default class UI {
   public static render(booksArr: BookInterface[]): void {
+    UI.clearContainer();
+    // sukti cikla per knygas
+    // surasyti jas i html
+    booksArr.forEach((bookObj) => UI.createAndAppendOneRow(bookObj));
+  }
+
+  private static clearContainer() {
     // issivalom konteineri pries generuojant
     const tabelBodyEl = document.getElementById('book-list') as HTMLTableSectionElement | null;
     if (tabelBodyEl === null) return console.warn('nerastas tabelBodyEl ');
     tabelBodyEl.innerHTML = '';
-    // sukti cikla per knygas
-    // surasyti jas i html
-    booksArr.forEach((bookObj) => UI.createAndAppendOneRow(bookObj));
   }
 
   private static createAndAppendOneRow(book: BookInterface): void {
