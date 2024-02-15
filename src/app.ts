@@ -2,7 +2,7 @@
 
 import Book from './class/book.class.js';
 import BookApp from './class/bookApp.class.js';
-import MyAlert from './class/myAlert.class.js';
+import MyAlert, { PermanentAlert } from './class/myAlert.class.js';
 
 console.log('Hello from app.ts!111');
 
@@ -33,7 +33,8 @@ formEl?.addEventListener('submit', (event: SubmitEvent): void => {
       priceEl.value.trim(),
     ].includes('')
   ) {
-    new MyAlert('All fields required', 'danger');
+    // new MyAlert('All fields required', 'danger');
+    new PermanentAlert('All fields required');
     return;
   }
 
