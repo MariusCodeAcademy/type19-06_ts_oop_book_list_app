@@ -8,7 +8,7 @@ console.log('Hello from app.ts!111');
 
 BookApp.showBooks();
 
-const b1 = new Book('aplinkk pasauli', 'Z.Vernas', 542874);
+const b1 = new Book('aplinkk pasauli', 'Z.Vernas', 542874, 10.99);
 
 BookApp.addBook(b1);
 
@@ -30,7 +30,7 @@ formEl?.addEventListener('submit', (event: SubmitEvent): void => {
   }
 
   // sukuriam nauja knyga
-  const newBook = new Book(titleEl.value, authorEl.value, isbnEl.valueAsNumber);
+  const newBook = new Book(titleEl.value, authorEl.value, isbnEl.valueAsNumber, 50);
   console.log('newBook ===', newBook);
   // issivalom inputus
   BookApp.addBook(newBook);

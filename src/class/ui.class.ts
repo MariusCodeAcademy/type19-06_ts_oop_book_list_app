@@ -19,15 +19,16 @@ export default class UI {
     const col1 = createHtmlEL<HTMLTableCellElement>('td', {}, book.title);
     const col2 = createHtmlEL<HTMLTableCellElement>('td', {}, book.author);
     const col3 = createHtmlEL<HTMLTableCellElement>('td', {}, book.isbn.toString());
-    const col4 = createHtmlEL<HTMLTableCellElement>('td', {});
+    const col4 = createHtmlEL<HTMLTableCellElement>('td', {}, book.price?.toString() || '0');
+    const col5 = createHtmlEL<HTMLTableCellElement>('td', {});
     const delBtn = createHtmlEL<HTMLButtonElement>(
       'button',
       { class: 'btn btn-danger btn-sm' },
       'X',
     );
     delBtn.addEventListener('click', () => BookApp.deleteBook(book));
-    col4.appendChild(delBtn);
-    trEl.append(col1, col2, col3, col4);
+    col5.appendChild(delBtn);
+    trEl.append(col1, col2, col3, col4, col5);
     if (tabelBodyEl === null) return console.warn('nerastas tabelBodyEl ');
 
     tabelBodyEl.append(trEl);
