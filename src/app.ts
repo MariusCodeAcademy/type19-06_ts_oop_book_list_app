@@ -2,6 +2,7 @@
 
 import Book from './class/book.class.js';
 import BookApp from './class/bookApp.class.js';
+import MyAlert from './class/myAlert.class.js';
 
 console.log('Hello from app.ts!111');
 
@@ -22,7 +23,11 @@ formEl?.addEventListener('submit', (event: SubmitEvent): void => {
   event.preventDefault();
   if (!titleEl || !authorEl || !isbnEl) return console.warn('nera input elemento/u');
 
-  // TODO: validation
+  // validation
+  if (titleEl.value.trim() === '' || authorEl.value.trim() === '' || isbnEl.value.trim() === '') {
+    new MyAlert('All fields required', 'danger');
+    return;
+  }
 
   // sukuriam nauja knyga
   const newBook = new Book(titleEl.value, authorEl.value, isbnEl.valueAsNumber);
